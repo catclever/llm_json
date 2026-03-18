@@ -51,15 +51,15 @@ data = LLMJSON.parse(broken_llm_output)
 ```
 
 ### 2. Alternative to `JSON.generate` / `JSON.dump`
-Use `LLMJSON.dump` when you need to serialize a Ruby Object, or when you proactively want to heal a broken JSON string and output a **valid JSON string**.
+Use `LLMJSON.generate` when you need to serialize a Ruby Object, or when you proactively want to heal a broken JSON string and output a **valid JSON string**.
 
 ```ruby
 # If you pass a Ruby Hash, it works exactly like JSON.generate
-LLMJSON.dump({ hello: "world" })
+LLMJSON.generate({ hello: "world" })
 # => '{"hello":"world"}'
 
 # If you pass a broken JSON String, it parses, heals, and returns a valid String
-LLMJSON.dump("{ 'broken': true, }")
+LLMJSON.generate("{ 'broken': true, }")
 # => '{"broken":true}'
 ```
 

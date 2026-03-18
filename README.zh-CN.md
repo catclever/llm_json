@@ -51,15 +51,15 @@ data = LLMJSON.parse(broken_llm_output)
 ```
 
 ### 2. 替代 `JSON.generate` / `JSON.dump`
-通常你会直接传入 Ruby 对象来执行标准的 `generate`，但 `LLMJSON.dump` 额外提供了一个魔法能力：如果你传入的是一个**字符串**，它会先将这个已损坏的字符串修复，并且吐出**严格标准且合法的 JSON 字符串**。
+通常你会直接传入 Ruby 对象来执行标准的 `generate`，但 `LLMJSON.generate` 额外提供了一个魔法能力：如果你传入的是一个**字符串**，它会先将这个已损坏的字符串修复，并且吐出**严格标准且合法的 JSON 字符串**。
 
 ```ruby
 # 当传入普通 Ruby 对象时，行为同 JSON.generate
-LLMJSON.dump({ hello: "world" })
+LLMJSON.generate({ hello: "world" })
 # => '{"hello":"world"}'
 
 # 当你想要直接修复一段脏字符串，最终把它交给其他严格要求 JSON 格式的 HTTP 服务时
-LLMJSON.dump("{ 'broken': true, }")
+LLMJSON.generate("{ 'broken': true, }")
 # => '{"broken":true}'
 ```
 

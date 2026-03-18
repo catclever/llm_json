@@ -21,10 +21,10 @@ RSpec.describe LLMJSON do
     end
   end
 
-  describe ".dump" do
+  describe ".generate" do
     it "serializes a standard Ruby object into a JSON string" do
       hash = { "a" => 1 }
-      expect(LLMJSON.dump(hash)).to eq('{"a":1}')
+      expect(LLMJSON.generate(hash)).to eq('{"a":1}')
     end
 
     it "takes a broken JSON string, fixes it, and returns a valid JSON string" do
@@ -34,7 +34,7 @@ RSpec.describe LLMJSON do
         ```
       MD
       # Note: Output depends on JSON.generate formatting, usually compact without spaces
-      expect(LLMJSON.dump(input)).to eq('{"a":1}')
+      expect(LLMJSON.generate(input)).to eq('{"a":1}')
     end
   end
 end
