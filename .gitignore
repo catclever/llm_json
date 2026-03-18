@@ -1,0 +1,9 @@
+lib
+*.gem
+.bundle
+.config
+coverage
+pkg
+spec/examples.txt
+.ruby-version
+.agent/
