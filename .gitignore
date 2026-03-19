@@ -1,4 +1,3 @@
-lib
 *.gem
 .bundle
 .config
@@ -7,3 +6,4 @@ pkg
 spec/examples.txt
 .ruby-version
 .agent/
+.DS_Store
